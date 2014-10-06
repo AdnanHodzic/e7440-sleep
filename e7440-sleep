@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# check if package cpufreq-utils is installed
+# check that user isn't run scirpt as root
+
+read -p "Enter your username: " user
+
+# add check to see if e7440 alias already exists
+
+# e7440 alias settings
+stuff='\n# Added by "e7440-wakeup\n
+alias e7440-wakeup="sudo cpufreq-set -g performance"
+alias e7440-status="cat /sys/devices/system/cpu/c*/cpufreq/scaling_governor"
+alias e7440-available="cat /sys/devices/system/cpu/cpu*/cpufreq/scaling_available_governors"\n'
+
+text=/home/$user/text.txt
+#alias=/home/$user/.bashrc
+#source /home/$user/.bashrc
+
+echo -e "$stuff" >> /home/$user/text.txt
+
+# add how to use message
+
+# automate whole script? Add regex to
+# change from powersave to performance
